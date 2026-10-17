@@ -1,0 +1,3 @@
+# Shared byte-for-byte with py-async-contract; regenerate there, never reformat here.
+test/fixtures/
+dist/

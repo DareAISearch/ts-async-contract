@@ -1,0 +1,63 @@
+{
+  "name": "ts-async-contract",
+  "version": "0.1.0",
+  "description": "Shared async job contract for DAIS services: idempotent submits (Idempotency-Key, Job-Id, Location) and webhook delivery (headers, event ids, body hashing, retry rules), for both the calling and the called service.",
+  "type": "module",
+  "license": "ISC",
+  "author": "nishant.kumar@dareaisearch.com",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DareAISearch/ts-async-contract.git"
+  },
+  "homepage": "https://github.com/DareAISearch/ts-async-contract#readme",
+  "bugs": {
+    "url": "https://github.com/DareAISearch/ts-async-contract/issues"
+  },
+  "engines": {
+    "node": ">=24"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    },
+    "./fastify": {
+      "types": "./dist/fastify/hooks.d.ts",
+      "default": "./dist/fastify/hooks.js"
+    }
+  },
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist",
+    "scripts"
+  ],
+  "scripts": {
+    "preinstall": "node scripts/check-node-engine.mjs",
+    "clean": "node -e \"require('fs').rmSync('dist', { recursive: true, force: true })\"",
+    "build": "npm run clean && tsc -p tsconfig.json",
+    "prepare": "npm run build",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "typecheck": "tsc --noEmit",
+    "typecheck:test": "tsc --project tsconfig.test.json",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "example": "tsx examples/fastify-server/server.ts"
+  },
+  "peerDependencies": {
+    "fastify": "^5.0.0"
+  },
+  "peerDependenciesMeta": {
+    "fastify": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "@types/node": "^24.13.6",
+    "fastify": "^5.12.5",
+    "prettier": "^3.9.9",
+    "tsx": "^4.23.15",
+    "typescript": "^7.0.2",
+    "vitest": "^5.0.2"
+  }
+}
