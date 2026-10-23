@@ -10,7 +10,7 @@ webhook. This package holds the pieces both sides must agree on:
 - **Webhook delivery** — every delivery carries both ids plus `Webhook-Id` (for dropping
   duplicates) and `Webhook-Timestamp`, and one rule decides what gets retried.
 
-Most services play both roles: web-scraping-service is a caller of llm-gateway and a callee for
+Most services play both roles: web-data-engine is a caller of llm-gateway and a callee for
 its own clients. The Python twin is
 [`py-async-contract`](https://github.com/DareAISearch/py-async-contract); both produce identical
 headers and identical body hashes.
